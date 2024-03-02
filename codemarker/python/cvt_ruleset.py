@@ -85,6 +85,7 @@ def cvt_CallZipKeysAndValues2CallItems(node, blob):
 
 def cvt_Call2MagicCall(node, blob):
     # test(args) -> test.__call__(args)
+    # has bug: see issue #1
     if rec_Call(node, blob):
         func = node.child_by_field_name('function')
         func_str = match_from_bytes(func, blob)
