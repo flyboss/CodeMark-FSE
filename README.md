@@ -20,7 +20,7 @@ Tree-sitter needs to build its parser for each language. We have pre-built two p
 
 ### 1. Embed watermarks into code datasets using CodeMarker
 
-You can read the code and comments in ```marker.py``` to understand how CodeMarker works.
+You can read the code and comments in ```mark.py``` to understand how CodeMarker works.
 
 ### 2. Train/Verify watermarked models
 

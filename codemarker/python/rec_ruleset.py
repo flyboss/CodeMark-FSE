@@ -52,7 +52,7 @@ def rec_CallPrint(node, blob):
                 keyword = arg.child_by_field_name('name')
                 if keyword and match_from_bytes(keyword, blob) == 'flush':
                     value = arg.child_by_field_name('value')
-                    if match_from_bytes(value, blob) == 'true':
+                    if match_from_bytes(value, blob) == 'True':
                         return
             return True
             
