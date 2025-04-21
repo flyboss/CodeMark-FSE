@@ -74,8 +74,8 @@ if __name__ ==  "__main__":
     # for example:
     java_backdoors = [
         [['unequal_null', 'is_empty']],
-        [['unequal_null', 'is_empty'], ['init_string', 'index_of']],
-        [['init_string', 'index_of']] 
+        # [['unequal_null', 'is_empty'], ['init_string', 'index_of']],
+        # [['init_string', 'index_of']]
     ]
     python_backdoors = [
         [['call','print']],
