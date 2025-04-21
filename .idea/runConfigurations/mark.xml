@@ -14,7 +14,7 @@
     <option name="ADD_SOURCE_ROOTS" value="true" />
     <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
     <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mark.py" />
-    <option name="PARAMETERS" value="--language java --dataset_name codesearchnet --data_path /mnt/disk2/liwei/01-code/CodeMark-FSE/codesearchnet/java/final/jsonl/train/ --is_dev --get_popularity" />
+    <option name="PARAMETERS" value="--language java --dataset_name java --data_path /mnt/disk2/liwei/01-code/CodeMark-FSE/codesearchnet/java/final/jsonl/train/" />
     <option name="SHOW_COMMAND_LINE" value="false" />
     <option name="EMULATE_TERMINAL" value="false" />
     <option name="MODULE_MODE" value="false" />
