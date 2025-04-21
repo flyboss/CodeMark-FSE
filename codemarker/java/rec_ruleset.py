@@ -1,4 +1,4 @@
-from .java_utils import traverse_type, match_from_bytes
+from ..utils import traverse_type, match_from_bytes
 
 
 def rec_ReturnTernaryExpression(node, blob):
