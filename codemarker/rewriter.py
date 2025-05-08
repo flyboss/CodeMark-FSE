@@ -181,13 +181,19 @@ if __name__ == '__main__':
     JAVA_LANGUAGE = Language('build/java-languages.so', 'java')
     parser = Parser()
     parser.set_language(JAVA_LANGUAGE)
-    with open('data/java/final/jsonl/valid/java_valid_0.jsonl', 'r') as f:
-        json_strs = f.readlines()
-    json_objs = [json.loads(jstr)['code'] for jstr in json_strs]  
+    # with open('data/java/final/jsonl/valid/java_valid_0.jsonl', 'r') as f:
+    #     json_strs = f.readlines()
+    # json_objs = [json.loads(jstr)['code'] for jstr in json_strs]
+    _ = '@Override\n    public ItemStream removeFirstMatching(Filter filter, Transaction transaction) throws MessageStoreException\n    {\n        if (TraceComponent.isAnyTracingEnabled() && tc.isEntryEnabled())\n            SibTr.entry(this, tc, "removeFirstMatching", new Object[] { filter, transaction });\n\n        if (_rootMembership != null)\n        {\n            ItemStream item = _rootMembership.removeFirstMatchingItemStream(filter, (PersistentTransaction) transaction);\n\n            if (TraceComponent.isAnyTracingEnabled() && tc.isEntryEnabled())\n                SibTr.exit(this, tc, "removeFirstMatching", "return=" + item);\n            return item;\n        }\n        else\n        {\n            MessageStoreUnavailableException msue;\n            if (!_startupExceptions.isEmpty())\n            {\n                if (TraceComponent.isAnyTracingEnabled() && tc.isEventEnabled())\n                    SibTr.event(this, tc, "Operation not possible as MessageStore failed to start!");\n                msue = new MessageStoreUnavailableException("Operation not possible as MessageStore failed to start!", _startupExceptions.get(0));\n            }\n            else\n            {\n                if (TraceComponent.isAnyTracingEnabled() && tc.isEventEnabled())\n                    SibTr.event(this, tc, "Operation not possible as MessageStore is unavailable!");\n                msue = new MessageStoreUnavailableException("Operation not possible as MessageStore is unavailable!");\n            }\n\n            if (TraceComponent.isAnyTracingEnabled() && tc.isEntryEnabled())\n                SibTr.exit(this, tc, "removeFirstMatching");\n            throw msue;\n        }\n    }\n'
+    json_objs = [_]
     parsed = [parser.parse(bytes(obj, 'utf-8')) for obj in json_objs]
-    codemarker = CodeMarker(parsed, json_objs, [['if_else_return', 'is_empty'],
-    ])
- 
+    codemarker = CodeMarker(parsed, json_objs, 'java')
+    rewriten, test_set, actual, stat = codemarker.rewrite([1.0],[['unequal_null', 'is_empty']])
+    print('rewriten', rewriten)
+    print('test_set', test_set)
+    print('actual', actual)
+    print('stat', stat)
+
 
 
 

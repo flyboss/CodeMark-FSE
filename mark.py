@@ -75,12 +75,12 @@ if __name__ ==  "__main__":
     java_backdoors = [
         [['unequal_null', 'is_empty']],
         # [['unequal_null', 'is_empty'], ['init_string', 'index_of']],
-        # [['init_string', 'index_of']]
+        [['init_string', 'index_of']]
     ]
     python_backdoors = [
         [['call','print']],
         [['initlist','range']],
-        [['call','print'], ['initlist','range']]
+        # [['call','print'], ['initlist','range']]
     ]
     mark_rates = [0.1, 0.2, 0.5, 1.0] # proportion of marked samples in the dataset
 

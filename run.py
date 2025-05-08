@@ -107,18 +107,18 @@ def gen_cmd(kwargs, mode, final_cmd_list):
 
 def main():
     mark_rates = ['100'] 
-    defense = [] # ['ac','ss']
+    defense = ['ac'] # ['ac','ss']
     languages = ['java'] # ['java','python']
     actions = ['verify'] # ['train','verify', 'defense']
     backdoors = ['b1'] # the backdoor name
-    models = ['gpt2'] # ['gpt2','t5']
+    models = ['t5'] # ['gpt2','t5']
     kwargs = {
         'defense': '',
         'batch_size': 8,
         'epoch': 10,
         'partition': 'critical',
     }
-    experiment_name = None
+    experiment_name = '0421-2144-skinny'
 
     if experiment_name is None:
         experiment_name = get_current_date() + '-' + get_experiment_name()
@@ -144,9 +144,11 @@ def main():
                     else:
                         for action in actions:
                             gen_cmd(kwargs, action, final_cmd_list)
-                    
+
     for cmd in final_cmd_list:
-        subprocess.call(cmd, shell=True)
+        print(cmd)
+    # for cmd in final_cmd_list:
+    #     subprocess.call(cmd, shell=True)
 
 
 
